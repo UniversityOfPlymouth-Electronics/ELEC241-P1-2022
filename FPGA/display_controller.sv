@@ -23,6 +23,8 @@ int writedelay2 = 80;
 
 enum {init, initwait, run, runwait} current_state;
    
+
+ 
 always_ff @(posedge clk) begin
 
    case (current_state)
