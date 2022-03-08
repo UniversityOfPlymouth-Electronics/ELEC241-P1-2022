@@ -611,7 +611,7 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1792 816 1856 840))
+	(annotation_block (location)(rect 1792 808 1856 832))
 )
 (pin
 	(output)
@@ -628,7 +628,7 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1792 840 1856 864))
+	(annotation_block (location)(rect 1792 824 1856 848))
 )
 (symbol
 	(rect 1000 288 1128 384)
@@ -1610,34 +1610,6 @@ https://fpgasoftware.intel.com/eula.
 		(rectangle (rect 16 16 184 96))
 	)
 )
-(symbol
-	(rect 1184 976 1304 1056)
-	(text "clk_div_N" (rect 5 0 54 12)(font "Arial" ))
-	(text "inst3" (rect 8 64 30 81)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 27 35 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 120 32)
-		(output)
-		(text "y" (rect 0 0 7 12)(font "Arial" ))
-		(text "y" (rect 94 27 101 39)(font "Arial" ))
-		(line (pt 120 32)(pt 104 32))
-	)
-	(parameter
-		"N"
-		"1024"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 104 64))
-	)
-	(annotation_block (parameter)(rect 1304 936 1473 974))
-)
 (connector
 	(text "SPIS_RXREG_LD" (rect 1354 320 1434 337)(font "Intel Clear" ))
 	(pt 1352 336)
@@ -2148,6 +2120,11 @@ https://fpgasoftware.intel.com/eula.
 	(pt 816 784)
 )
 (connector
+	(text "CLOCK_10KHz" (rect 98 -40 169 -23)(font "Intel Clear" ))
+	(pt 216 -24)
+	(pt 80 -24)
+)
+(connector
 	(text "led_data[6]" (rect 170 760 224 772)(font "Arial" ))
 	(pt 160 776)
 	(pt 224 776)
@@ -2234,6 +2211,11 @@ https://fpgasoftware.intel.com/eula.
 	(pt 1616 744)
 )
 (connector
+	(text "CLOCK_50" (rect 1194 784 1247 801)(font "Intel Clear" ))
+	(pt 1248 800)
+	(pt 1184 800)
+)
+(connector
 	(text "lcd_ctrl[0]" (rect 1562 768 1610 785)(font "Intel Clear" ))
 	(pt 1448 784)
 	(pt 1616 784)
@@ -2253,30 +2235,6 @@ https://fpgasoftware.intel.com/eula.
 	(pt 1520 768)
 	(pt 1448 768)
 	(bus)
-)
-(connector
-	(pt 1088 1008)
-	(pt 1088 1000)
-)
-(connector
-	(text "CLOCK_10KHz" (rect 98 -40 169 -23)(font "Intel Clear" ))
-	(pt 216 -24)
-	(pt 80 -24)
-)
-(connector
-	(text "CLOCK_10KHz" (rect 1098 992 1169 1009)(font "Intel Clear" ))
-	(pt 1184 1008)
-	(pt 1088 1008)
-)
-(connector
-	(text "CK_TEST" (rect 1314 992 1357 1009)(font "Intel Clear" ))
-	(pt 1304 1008)
-	(pt 1400 1008)
-)
-(connector
-	(text "CK_TEST" (rect 1194 784 1237 801)(font "Intel Clear" ))
-	(pt 1248 800)
-	(pt 1184 800)
 )
 (junction (pt -168 160))
 (junction (pt -168 344))
