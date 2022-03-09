@@ -102,18 +102,13 @@ set_location_assignment PIN_J15 -to KEY_0
 set_location_assignment PIN_E1 -to KEY_1
 set_location_assignment PIN_F13 -to DEBUG_PIN_1
 set_location_assignment PIN_T15 -to DEBUG_PIN_2
-set_global_assignment -name VHDL_FILE ../lib/elec241.vhd
-set_global_assignment -name VHDL_FILE ../lib/waitncycles.vhd
-set_global_assignment -name VHDL_FILE ../lib/spi_bhm.vhd
-set_global_assignment -name VHDL_FILE ../lib/regn.vhd
-set_global_assignment -name VHDL_FILE ../lib/pad_bits.vhd
-set_global_assignment -name BDF_FILE cdc_synchroniser.bdf
-set_global_assignment -name BDF_FILE spi_test.bdf
-set_global_assignment -name BDF_FILE switch_dataflow.bdf
-set_global_assignment -name BDF_FILE switches.bdf
-set_global_assignment -name VHDL_FILE master_controller.vhd
-set_global_assignment -name VHDL_FILE ../lib/mux_21.vhd
-set_global_assignment -name SYSTEMVERILOG_FILE clk_div_N.sv
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to OPTOA
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to OPTOB
+set_global_assignment -name SYSTEMVERILOG_FILE registerN.sv
+set_global_assignment -name VHDL_FILE ../lib/elec241.vhd
+set_global_assignment -name VHDL_FILE ../lib/spi_bhm.vhd
+set_global_assignment -name BDF_FILE cdc_synchroniser.bdf
+set_global_assignment -name BDF_FILE spi_test.bdf
+set_global_assignment -name SYSTEMVERILOG_FILE clk_div_N.sv
+set_global_assignment -name SYSTEMVERILOG_FILE led_reg_controller.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
