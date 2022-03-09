@@ -18,7 +18,7 @@ The Hardware folder contains pre-built Mbed and FPGA binaries you can use to pro
 ## Tasks
 We suggest you do the following:
 
-* Program the MCU with one of the test binaries
+* Program the MCU with one of the test binaries (safety precaution)
 * Complete construction of your cables and boards
 * Connect everything in accordance with the image in the coursework spec
 * Use the test binaries in the Hardware folder to check your hardware. Read the README files in each
