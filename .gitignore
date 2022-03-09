@@ -84,7 +84,7 @@ behavioural_run_msim_rtl_vhdl.do
 *.qws
 *.rpt
 *.smsg
-*.sof
+# *.sof
 *.sopc_builder
 *.summary
 *.tcl
