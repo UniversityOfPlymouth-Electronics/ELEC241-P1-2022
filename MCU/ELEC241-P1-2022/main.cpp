@@ -17,7 +17,6 @@ DigitalIn DO_NOT_USE(PB_12);    // MAKE PB_12 (D19) an INPUT do NOT make an OUTP
 
 // **************************************** Function prototypes *********************************************
 uint16_t spi_readwrite(uint16_t data);  
-
 // **********************************************************************************************************
 
 
@@ -26,21 +25,24 @@ uint16_t spi_readwrite(uint16_t data);
 // **********************************************************************************************************
 
 int main() {
+    //SET UP THE SPI INTERFACE
     cs = 1;                     // Chip must be deselected, Chip Select is active LOW
     spi.format(16,0);           // Setup the DATA frame SPI for 16 bit wide word, Clock Polarity 0 and Clock Phase 0 (0)
     spi.frequency(1000000);     // 1MHz clock rate
     wait_us(10000);
 
+    // This will hold the 16-bit data returned from the SPI interface (sent by the FPGA)
+    // Currently the inputs to the SPI recieve are left floating (see quartus files)
     uint16_t rx;
 
-    while(true)                 //Loop forever 
+    while(true)                 
     {
-        rx = spi_readwrite(0x00AA);
-        printf("Recieved: %u\n",rx);
-        wait_us(1000000);
-        rx = spi_readwrite(0x0055);
-        printf("Recieved: %u\n",rx);
-        wait_us(1000000);
+        rx = spi_readwrite(0x00AA);     // Send binary 0000 0000 1010 1010
+        printf("Recieved: %u\n",rx);    // Display the value returned by the FPGA
+        wait_us(1000000);               // 
+        rx = spi_readwrite(0x0055);     // Send binary 0000 0000 0101 0101
+        printf("Recieved: %u\n",rx);    // Display the value returned by the FPGA
+        wait_us(1000000);               //
     }
 }
 
