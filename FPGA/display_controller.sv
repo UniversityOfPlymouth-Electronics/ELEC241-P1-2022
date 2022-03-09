@@ -20,8 +20,9 @@ int initcount = 0;
 int initdelay = 0;
 int writedelay1 = 40;
 int writedelay2 = 80;
+int writedelay3 = 120;
 
-enum {init, initwait, run, runwait} current_state;
+enum {init, initwait, run} current_state;
    
 
  
@@ -62,22 +63,22 @@ always_ff @(posedge clk) begin
                         begin
                          rs   <= 1'b0;     // instruction
                          rw   <= 1'b0;     // write
-                         data <= 8'b00101000;      //8 bits 2 lines 5x8
+                         data <= 8'b00111000;      //8 bits 2 lines 5x8
                          initdelay <= 50;    // delay 
                         end
                      5:    // initialise stage 6 
                         begin
                          rs   <= 1'b0;     // instruction
                          rw   <= 1'b0;     // write
-                         data <= 8'b00011000;   // display on
+                         data <= 8'b00001100;   // display on
                          initdelay <= 50;    // delay 
                         end
                      6:    // initialise stage 7 
                         begin
                          rs   <= 1'b0;     // instruction
                          rw   <= 1'b0;     // write
-                         data <= 8'b01100000;   // clear display
-                         initdelay <= 50;    // delay 
+                         data <= 8'b00000001;   // clear display
+                         initdelay <= 500;    // delay 
                         end
                      7:    // initialise stage 8 
                         begin
@@ -92,7 +93,7 @@ always_ff @(posedge clk) begin
                   
                   if (counter1 > eholdDOWN && counter1 < eholdUP)
                      begin
-                       e    <= 1'b0; 
+                       e <= 1'b0; 
                      end
                   if (counter1 == eholdUP)
                      begin
@@ -129,10 +130,16 @@ always_ff @(posedge clk) begin
 
                         rw <= 1'b0; 
                         rs <= 1'b1;    
+                        
                         data <= 8'h4D; // send 'M'
                         
                         counter1 <= counter1 + 1'b1;
-                        if (counter1 > writedelay1) 
+                        if (counter1 == 1)
+                           begin
+                              e <= 1'b1;
+                           end
+
+                        if (counter1 == writedelay1) 
                            begin
                               e <= 1'b0;
                            end
@@ -142,7 +149,19 @@ always_ff @(posedge clk) begin
                               e <= 1'b1;
                               counter1 <= 1'b0;
                            end
+
+                        // data <= 8'h4E; // send 'N'
+                        // counter1 <= counter1 + 1'b1;
+                        // if (counter1 > writedelay1) 
+                        //    begin
+                        //       e <= 1'b0;
+                        //    end
                         
+                        // if (counter1 == writedelay2 )
+                        //    begin
+                        //       e <= 1'b1;
+                        //       counter1 <= 1'b0;
+                        //    end
                      end
                   
                end
